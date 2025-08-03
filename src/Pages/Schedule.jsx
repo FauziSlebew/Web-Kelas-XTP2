@@ -17,30 +17,76 @@ const Schedule = () => {
         AOS.refresh()
     }, [])
 
-    let piketGroup = []
-
     // Menentukan kelompok piket berdasarkan hari
-    piketGroup = [
-        ["Amel", "Helmalia", "Fadli I", "Shera", "Nicollas"],
-        ["Windi", "Lista", "Jeriko", "Pratiwi", "Damar"],
-        ["Putri", "Paulista", "Firdaus", "Attala", "Ardian"],
-        ["Cariska", "Nila", "Wahid", "Togi", "Annisa"],
-        ["Sultan", "Zaini", "Fajri", "Arif"],
+    const piketGroup = [
+        // Senin
+        [
+            "M. FAUZAN",
+            "M. SA’DDUDIN",
+            "NAZIRA CHALIDI",
+            "ARIFIN RAMADHANI",
+            "M. RIZQI SYAHDAN",
+            "A. YUSUF",
+            "M. RIYANDI"
+        ],
+        // Selasa
+        [
+            "M. REVAN SHAREZA",
+            "M. RIZKI",
+            "M. RASUL",
+            "YUSUF",
+            "A. BADALI",
+            "MUSTAFA",
+            "M. RIDANI",
+            "SAYYID AHMAD"
+        ],
+        // Rabu
+        [
+            "ANTUNG SYIHABUDDIN",
+            "M. YUSUF",
+            "M. RIDA",
+            "M. RAIHAN",
+            "ANDHIKA",
+            "M. NOVAL",
+            "M. SAMAN",
+            "FAUZI"
+        ],
+        // Kamis
+        [
+            "M. RIDHO RIFANI",
+            "RIZAL MUHAIMIN",
+            "M. NASRULLAH",
+            "ILHAM SHIDDIK",
+            "M. RIZAL",
+            "M. RISKI",
+            "M. RIFQI",
+            "M. ZAIRULLAH"
+        ],
+        // Jumat
+        [
+            "A. MARWAN",
+            "A. NIZAR",
+            "A. RIFA'I",
+            "M. HANAFI",
+            "M. RIDHO ZIDANE",
+            "M. RIZKI BAIHAQI",
+            "M. SAPI'I"
+        ]
     ]
 
     const dayComponents = [
-        null, // Kosongkan indeks 0
+        null, // Sunday (index 0)
         Senin,
         Selasa,
         Rabu,
         Kamis,
-        Jumat,
+        Jumat
     ]
 
-    // Menampilkan komponen berdasarkan hari saat ini
+    // Tentukan komponen hari ini
     const TodayComponent = dayComponents[new Date().getDay()]
 
-    // Menampilkan nama-nama piket sesuai dengan hari saat ini
+    // Tentukan nama piket hari ini
     const currentPiketNames = piketGroup[new Date().getDay() - 1]
 
     console.log("Current Day:", currentDay)
@@ -79,7 +125,7 @@ const Schedule = () => {
                     currentPiketNames.map((piketName, index) => (
                         <div
                             key={index}
-                            className={` border-t-2 border-white flex justify-center py-[0.50rem] w-72 px-3 ${
+                            className={`border-t-2 border-white flex justify-center py-[0.50rem] w-72 px-3 ${
                                 index === currentPiketNames.length - 1 ? "border-b-2" : ""
                             }`}
                             data-aos="fade-up"
